@@ -1,0 +1,13 @@
+---
+  - hosts: 127.0.0.1
+    become: true
+    become_method: sudo
+    tasks:
+    - name: installing multiple {{ packages1 }}
+      yum: name={{ packages1 }} state=latest
+
+    - name: installing multiple {{ packages2 }}
+      yum: name={{ packages2 }} state=latest
+
+    - name: installing multiple {{ packages3 }}
+      yum: name={{ packages3 }} state=latest

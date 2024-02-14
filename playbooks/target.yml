@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   user: root
+   become: yes
+   become_method: sudo 
+   vars:
+     test: "testing the variable section example in playbook"
+   tasks:
+     - name: this is an example for variable
+       debug:
+         msg: "{{ test }}"

@@ -1,0 +1,30 @@
+---
+- hosts: all
+  user: ec2-user
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Install PHP on the remote machine
+      yum:
+        name: php
+        state: present
+
+    - name: Install httpd on the remote machine
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start the httpd service
+      service:
+        name: httpd
+        state: started
+
+    - name: Copy index.html to remote machine
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+
+    - name: Copy error.html to remote machine
+      copy:
+        src: error.html
+        dest: /var/www/html/error.html

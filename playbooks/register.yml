@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   user: root
+   become: yes
+   become_method: sudo
+   tasks:
+   - name: list the files inside folder
+     command: free -m
+     register: output
+   - name: print the output
+     debug: msg=" {{ output }}"

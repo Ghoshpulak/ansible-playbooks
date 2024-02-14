@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   user: ec2-user
+   become: yes
+   become_method: sudo
+   vars:
+     country:
+       - US
+       - INDIA
+       - AU
+       - UK
+       - BRITISH
+   tasks:
+   - name: list the countries
+     debug:
+      msg: "{{ country[2] }}"

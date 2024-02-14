@@ -1,0 +1,20 @@
+---
+ - hosts: all
+   user: root
+   become: yes
+   become_method: sudo
+   vars_prompt:
+   - name: username
+     prompt: "Please enter the username"
+     private: no
+   - name: password
+     prompt: "please enter the password"
+     private: no
+   - name: "sshkeys"
+     prompt: "mention the location of the ssh .pem key"
+     private: no
+   tasks:
+    - name: creating the user {{ username }}
+      user: name={{ username }} password={{ password }}
+    - name: generating ssh key
+      user: name={{ username }} generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file="{{ sshkeys }}"

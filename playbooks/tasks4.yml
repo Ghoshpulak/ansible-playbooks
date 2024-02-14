@@ -1,0 +1,3 @@
+---
+ - name: this is 4th task
+   service: name=firewalld state=restarted

@@ -7,5 +7,6 @@
      test: "testing the variable section example in playbook"
    tasks:
      - name: this is an example for variable
+       run_once: true
        debug:
          msg: "{{ test }}"

@@ -1,0 +1,18 @@
+---
+ - hosts: all
+   user: root
+   become: yes
+   become_method: sudo
+   vars:
+     hello:
+       - INDIA
+       - US
+       - AUS
+       - UK
+       - CHINA
+       - INDO
+       - SINGAPORE
+   tasks:
+    - name: this is variable for country codes
+      debug:
+        msg: "{{ hello[2] }}"

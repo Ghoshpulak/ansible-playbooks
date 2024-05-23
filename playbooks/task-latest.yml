@@ -1,0 +1,16 @@
+---
+ - hosts: webservers
+   user: root
+   become: yes
+   become_method: sudo
+   tasks:
+    - name: 1. install  the  apache webserver system
+      yum: name=httpd state=latest
+    - name: 2. install php
+      yum: name=php state=present
+    - name: 3. install tomcat
+      yum: name=tomcat state=latest
+    - name: 4. restart the service
+      service: name=httpd state=restarted
+    - name: 5. copy index.html file
+      copy: src=index.html dest=/var/www/html/index.html 

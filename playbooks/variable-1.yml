@@ -12,7 +12,9 @@
        - CHINA
        - INDO
        - SINGAPORE
+       - MUMBAI
+       - BANGALORE  
    tasks:
     - name: this is variable for country codes
       debug:
-        msg: "{{ hello[2] }}"
+        msg: "{{ hello[5] }}"

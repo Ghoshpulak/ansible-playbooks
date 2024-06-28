@@ -1,0 +1,8 @@
+---
+ - hosts: all
+   gather_facts: false
+   tasks: 
+   - name: sleep for 50 seconds
+     command: sleep 50
+     async: 60
+     poll: 10

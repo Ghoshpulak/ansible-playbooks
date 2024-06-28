@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   user: root
+   become: yes
+   become_method: sudo
+   tasks:
+   - name: this is first task executing
+     yum: name=tomcat state=present
+   - include_tasks: tasks2.yml
+   - include_tasks: tasks3.yml
+   - include_tasks: tasks4.yml
+   - include_tasks: tasks5.yml
